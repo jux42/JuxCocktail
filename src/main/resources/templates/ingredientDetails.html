@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/output.css}" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body th:each="ingredient : ${thisingredient}">
+
+<div class="flex flex-col justify-center items-center"><br>
+
+    <a class="text-cyan-800 text-4xl text-center  py-8 " th:text="${ingredient.strIngredient}"></a><br>
+
+
+    <img alt="image" th:src="|https://www.thecocktaildb.com/images/ingredients/${ingredient.strIngredient}-Medium.png|">
+    <a class="ms-36 me-36 mt-8" th:text="${ingredient.strDescription}"></a>
+</div>
+
+</body>
+</html>

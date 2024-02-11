@@ -14,16 +14,19 @@
     <a class="text-4xl" th:text="${drink.strDrink}"></a><br><br>
     <img class="w-1/3 rounded-lg" th:src="${drink.strDrinkThumb}" alt="image">
 
-    <a th:text="${drink.strIngredient1}"></a>
-    <a th:text="${drink.strIngredient2}"></a>
-    <a th:text="${drink.strIngredient3}"></a>
-    <a th:text="${drink.strIngredient4}"></a>
-    <a th:text="${drink.strIngredient5}"></a>
-    <a th:text="${drink.strIngredient6}"></a><br>
-    <a th:text="${drink.strInstructions}"></a>
+    <a th:href="@{/ingredient/{ingredientName}(ingredientName=${drink.strIngredient1})}" th:text="${drink.strIngredient1}"></a>
+    <a th:href="@{/ingredient/{ingredientName}(ingredientName=${drink.strIngredient2})}" th:text="${drink.strIngredient2}"></a>
+    <a th:href="@{/ingredient/{ingredientName}(ingredientName=${drink.strIngredient3})}" th:text="${drink.strIngredient3}"></a>
+    <a th:href="@{/ingredient/{ingredientName}(ingredientName=${drink.strIngredient4})}" th:text="${drink.strIngredient4}"></a>
+    <a th:href="@{/ingredient/{ingredientName}(ingredientName=${drink.strIngredient5})}" th:text="${drink.strIngredient5}"></a>
+    <a th:href="@{/ingredient/{ingredientName}(ingredientName=${drink.strIngredient6})}" th:text="${drink.strIngredient6}"></a>
+    <a th:href="@{/ingredient/{ingredientName}(ingredientName=${drink.strIngredient7})}" th:text="${drink.strIngredient7}"></a>
+
+    <br>
+    <a class="ms-36 me-36 mt-8" th:text="${drink.strInstructions}"></a>
 </div>
 
-</div>
+
 
 
 </body>

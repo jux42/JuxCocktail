@@ -2,6 +2,8 @@ package com.example.CocktailMaker.Controller;
 
 import com.example.CocktailMaker.Model.Cocktail;
 import com.example.CocktailMaker.Model.CocktailResponse;
+import com.example.CocktailMaker.Model.Ingredient;
+import com.example.CocktailMaker.Model.IngredientResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -50,4 +52,22 @@ public class CocktailController {
         return "details";
 
     }
+
+    @GetMapping("ingredient/{ingredientName}")
+    public String ingredientDetails(@PathVariable String ingredientName, Model model){
+
+        ResponseEntity<IngredientResponse> response =
+                restTemplate.getForEntity(
+                        "https://www.thecocktaildb.com/api/json/v1/1/search.php?i="+ingredientName,
+                        IngredientResponse.class);
+                IngredientResponse ingredientResponse = response.getBody();
+                List<Ingredient> ingredients = null;
+                if(ingredientResponse != null){
+                    ingredients = ingredientResponse.getIngredients();
+                }
+                model.addAttribute("thisingredient", ingredients);
+
+                return "ingredientDetails";
+    }
+
 }
