@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/output.css}" />
+
+    <meta charset="UTF-8">
+    <title>Liste des Cocktails</title>
+</head>
+<body >
+<div class=" flex flex-col fixed top-0 left-0 right-0 bg-blue-200 opacity-90 z-10 justify-center w-full">
+<a class=" text-4xl	text-center text-red-950  py-8 " >Liste des Cocktails</a>
+</div>
+<div class="pt-32">
+<div class="flex flex-row flex-wrap">
+<ul class="flex flex-wrap">
+    <li class="w-1/6 p-2" th:each="cocktail : ${cocktails}">
+         <a  th:text="${cocktail.strDrink}">Nom du cocktail</a>
+        <a th:href="@{/cocktails/{id}(id=${cocktail.idDrink})}">
+        <img class="border-b rounded-lg " th:src="${cocktail.strDrinkThumb}" alt="image"></a>
+    </li>
+</ul>
+</div>
+</div>
+</body>
+</html>
