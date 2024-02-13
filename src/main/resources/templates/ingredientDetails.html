@@ -9,7 +9,11 @@
 
 <div class="flex flex-col justify-center items-center"><br>
 
-    <a class="text-cyan-800 text-4xl text-center  py-8 " th:text="${ingredient.strIngredient}"></a><br>
+
+        <a class="text-end pb-4" th:href="@{/cocktails}" >retour à la liste</a>
+
+
+    <a class="text-cyan-800 justify-self-end text-4xl text-center  py-8 " th:text="${ingredient.strIngredient}"></a><br>
 
 
     <img alt="image" th:src="|https://www.thecocktaildb.com/images/ingredients/${ingredient.strIngredient}-Medium.png|">

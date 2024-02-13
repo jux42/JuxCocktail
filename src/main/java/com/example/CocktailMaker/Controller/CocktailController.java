@@ -70,4 +70,19 @@ public class CocktailController {
                 return "ingredientDetails";
     }
 
+    @GetMapping("cocktails/random")
+    public String RandomCocktail(Model model){
+
+        ResponseEntity<CocktailResponse> response =
+                restTemplate.getForEntity("https://www.thecocktaildb.com/api/json/v1/1/random.php", CocktailResponse.class);
+        CocktailResponse cocktailResponse = response.getBody();
+        List<Cocktail> cocktail = null;
+        if(cocktailResponse != null){
+            cocktail = cocktailResponse.getDrinks();
+        }
+
+        model.addAttribute("thisCocktail", cocktail);
+        return "randomcocktail";
+    }
+
 }
